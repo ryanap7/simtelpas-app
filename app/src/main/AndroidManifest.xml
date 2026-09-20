@@ -7,11 +7,15 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
 
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
     <application
         android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
@@ -20,8 +24,9 @@
         android:usesCleartextTraffic="false">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -35,17 +40,17 @@
         </activity>
 
         <activity
-            android:name=".LockscreenActivity"
+            android:name=".ui.LockscreenActivity"
             android:exported="false"
             android:theme="@style/Theme.Simtelpas"/>
 
         <activity
-            android:name=".DeviceSetupActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:name=".ui.SetupActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Simtelpas"/>
 
         <receiver
-            android:name=".BootReceiver"
+            android:name=".kiosk.BootReceiver"
             android:exported="true"
             android:enabled="true">
             <intent-filter>
@@ -54,6 +59,15 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".kiosk.KioskWatchdogService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Relaunches the approved kiosk app if its task is unexpectedly removed on a managed device."/>
+        </service>
 
         <receiver
             android:name=".AdminReceiver"

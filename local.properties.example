@@ -1,0 +1,8 @@
+# Copy the line(s) you need into your local.properties (gitignored — never
+# commit real secrets here). local.properties itself is normally auto-managed
+# by Android Studio for sdk.dir; this key is added on top of that.
+
+# Backend auth key for HeartbeatWorker (POST /device-logs/heartbeat).
+# Required for every build variant — the Gradle build fails without it.
+# Ask the backend/SIMTELPAS admin team for the real value.
+DEVICE_API_KEY=REPLACE_WITH_REAL_DEVICE_API_KEY

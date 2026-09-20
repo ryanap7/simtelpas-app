@@ -5,28 +5,14 @@
     <string name="sedang_memuat">Sedang memuat...</string>
     <string name="logo">Logo</string>
 
-    <string name="register_device_title">Aktivasi Perangkat</string>
-    <string name="register_device_subtitle">Daftarkan perangkat ini ke sistem SIMTELPAS. Proses ini hanya dilakukan sekali.</string>
-
-    <string name="label_device_name">NAMA PERANGKAT</string>
-    <string name="hint_device_name">mis. Tablet Blok A — Ruang Kunjungan</string>
-
-    <string name="label_location">LOKASI</string>
-    <string name="hint_location">mis. Blok A, Pos Jaga 1</string>
-
-    <string name="label_device_type">JENIS PERANGKAT</string>
-
-    <string name="btn_register">Aktivasi Sekarang</string>
-
-    <string name="toast_register_success">Perangkat berhasil diaktivasi.</string>
-    <string name="toast_register_failed">Aktivasi gagal. Periksa token dan koneksi jaringan.</string>
-    <string name="error_device_name_required">Nama perangkat wajib diisi</string>
-    <string name="error_location_required">Lokasi wajib diisi</string>
-
     <string name="permission_required">Izin kamera dan mikrofon diperlukan untuk video call</string>
     <string name="error_load_page">Gagal memuat halaman. Tarik ke bawah untuk mencoba lagi.</string>
 
     <string name="clock_placeholder">00:00</string>
     <string name="status_offline">OFFLINE</string>
     <string name="swipe_to_unlock">Swipe up to unlock</string>
+
+    <string name="setting_up_device">Menyiapkan perangkat…</string>
+    <string name="waiting_for_setup_title">Menunggu Setup Perangkat</string>
+    <string name="waiting_for_setup_subtitle">Perangkat sudah terkunci dalam mode kiosk. Hubungkan ke komputer setup untuk menyelesaikan registrasi.</string>
 </resources>

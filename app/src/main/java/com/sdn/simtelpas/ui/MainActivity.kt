@@ -205,6 +205,14 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetJavaScriptEnabled", "ClickableViewAccessibility")
     private fun setupWebView() {
+        if (com.sdn.simtelpas.BuildConfig.DEBUG) {
+            // Lets `chrome://inspect` on the imaging PC attach to this WebView so the
+            // Network/Console tabs can be checked against the admin panel's feature
+            // checklist directly, instead of only eyeballing the rendered page. Never
+            // enabled on a release build.
+            WebView.setWebContentsDebuggingEnabled(true)
+        }
+
         binding.webView.setOnTouchListener { _, _ ->
             resetLockTimer()
             false
